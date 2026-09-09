@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
+//A structure to represent an issue
 struct Issue {
     int id;
     char title[100];
@@ -23,4 +24,5 @@ void closeIssue(struct Issue *issue, int issueCount);
 void deleteIssue(struct Issue *issue, int *issueCount);
 
 void searchIssue(struct Issue *issue, int issueCount);
+
 #endif

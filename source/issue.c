@@ -5,6 +5,7 @@
 
 void createIssue(struct Issue **issue, int *issueCount)
 {
+    //Reallocates memory for the issues array to accommodate a new issue.
     *issue = realloc(*issue, (*issueCount + 1) * sizeof(struct Issue));
 
     if (*issue == NULL) {
@@ -20,6 +21,7 @@ void createIssue(struct Issue **issue, int *issueCount)
     printf("Enter issue description: ");
     scanf(" %[^\n]", (*issue)[*issueCount].description);
 
+   //Validates the priority input to ensure it is either "Low", "Medium", or "High".
     do {
     printf("Enter priority (Low, Medium, High): ");
     scanf(" %19s", (*issue)[*issueCount].priority);
@@ -55,6 +57,7 @@ void viewIssues(struct Issue *issue, int issueCount)
 
     printf("\nView issues\n");
 
+    //Iterates through the issues array and prints the details of each issue.
     for (int i = 0; i < issueCount; i++) {
         printf("ID: %d\n", issue[i].id);
         printf("Title: %s\n", issue[i].title);
@@ -86,7 +89,9 @@ void updateIssue(struct Issue *issue, int issueCount)
 
     if (!found) {
         printf("Issue not found.\n");
-    } else {
+    } else 
+    //Prompts the user to update the details of the found issue, including title, description, priority, status, and assigned person.
+    {
         printf("Enter new title (current: %s): ", foundIssue->title);
         scanf(" %[^\n]", foundIssue->title);
 
@@ -138,7 +143,9 @@ void closeIssue(struct Issue *issue, int issueCount)
 
     if (!found) {
         printf("Issue not found.\n");
-    } else {
+    } else 
+    //Updates the status of the found issue to "CLOSED" and prints a success message.
+    {
         strcpy(foundIssue->status, "CLOSED");
         printf("Issue closed successfully.\n");
     }
@@ -152,7 +159,7 @@ void deleteIssue(struct Issue *issue, int *issueCount)
     scanf("%d", &id);
 
     int found = 0;
-
+    //Iterates through the issues array to find the issue with the specified ID. If found, it shifts the subsequent issues to fill the gap and decrements the issue count.
     for (int i = 0; i < *issueCount; i++) {
         if (issue[i].id == id) {
             found = 1;
@@ -182,6 +189,7 @@ void searchIssue(struct Issue *issue, int issueCount)
 
     int found = 0;
 
+    //Iterates through the issues array to find issues with the specified title. If found, it prints the details of the matching issues.
     for (int i = 0; i < issueCount; i++) {
         if (strcmp(issue[i].title, searchTitle) == 0) {
             printf("\nIssue found:\n");
