@@ -20,8 +20,21 @@ void createIssue(struct Issue **issue, int *issueCount)
     printf("Enter issue description: ");
     scanf(" %[^\n]", (*issue)[*issueCount].description);
 
+    do {
     printf("Enter priority (Low, Medium, High): ");
     scanf(" %19s", (*issue)[*issueCount].priority);
+
+    if (strcmp((*issue)[*issueCount].priority, "Low") != 0 &&
+        strcmp((*issue)[*issueCount].priority, "Medium") != 0 &&
+        strcmp((*issue)[*issueCount].priority, "High") != 0) {
+        
+        printf("Invalid priority. Please try again.\n");
+    }
+
+    } 
+    while (strcmp((*issue)[*issueCount].priority, "Low") != 0 &&
+         strcmp((*issue)[*issueCount].priority, "Medium") != 0 &&
+         strcmp((*issue)[*issueCount].priority, "High") != 0);
 
     strcpy((*issue)[*issueCount].status, "OPEN");
 
@@ -81,7 +94,19 @@ void updateIssue(struct Issue *issue, int issueCount)
         scanf(" %[^\n]", foundIssue->description);
 
         printf("Enter new priority (current: %s): ", foundIssue->priority);
-        scanf(" %19s", foundIssue->priority);
+        do {
+            scanf(" %19s", foundIssue->priority);
+
+            if (strcmp(foundIssue->priority, "Low") != 0 &&
+                strcmp(foundIssue->priority, "Medium") != 0 &&
+                strcmp(foundIssue->priority, "High") != 0) {
+
+                printf("Invalid priority. Please try again.\n");
+            }
+
+        } while (strcmp(foundIssue->priority, "Low") != 0 &&
+                 strcmp(foundIssue->priority, "Medium") != 0 &&
+                 strcmp(foundIssue->priority, "High") != 0);
 
         printf("Enter new status (current: %s): ", foundIssue->status);
         scanf(" %19s", foundIssue->status);

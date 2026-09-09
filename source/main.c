@@ -13,7 +13,7 @@ int main () {
     while (choice != 7) {
         
     
-    printf("==========\n   C Issue Tracker\n==========\n");
+    printf("\n===============\nC Issue Tracker\n===============\n");
 
     printf("1. Create Issue\n2. View Issues\n3. Update Issue\n4. Close Issue\n5. Delete Issue\n6. Search Issue\n7. Save & Exit\n");
 
@@ -47,7 +47,11 @@ int main () {
             saveIssues(issue, issueCount);
             printf("Exiting...\n");
             break;
-        }
+        
+        default:
+            printf("\nInvalid choice. Please try again.\n");
+            break;
+    }
     }
 free(issue);
 return 0;
