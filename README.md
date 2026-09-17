@@ -13,7 +13,7 @@ Features:
 - Input validation
 
 Concepts:
-This program consists of structs, pointers, arrays, strings, dynamic memory allocation, file I/O, modularity and function. 
+- This program consists of structs, pointers, arrays, strings, dynamic memory allocation, file I/O, modularity and function. 
 
 How to Run?
 
