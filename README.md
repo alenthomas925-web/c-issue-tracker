@@ -12,11 +12,11 @@ Features:
     - Save & Exit issues
     - Input validation
 
-Concets:
+Concepts:
     This program consists of structs, pointers, arrays, strings, dynamic memory allocation, file I/O, modularity and function. 
 
 How to Run?
 
-Compile to project: make
+Compile the project: make
 
-Run the program: ./Issure-Tracker
+Run the program: ./issue_tracker
